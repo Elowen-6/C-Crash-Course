@@ -1,19 +1,27 @@
 ﻿#include <iostream>
-#include<string>
+#include <string>
+#include <windows.h>
+
 using namespace std;
 
 int main()
 {
-    // 创建
+    // 控制台切换UTF8输出输入
+    /*SetConsoleOutputCP(65001);*/
+    
+	
+	// 创建
 	string s1 = "Hello";
 	string s2("World");
 	string s3(5,'*');
+	string s4("你好");
 
 	// 拼接
-	string greeting = s1 + "，" + s2 + "!";
+	string greeting = s1 + "," + s2 + "!";
+	string greeting2 = s4;
 	cout << greeting << endl;
 
-	s1.append("C++");
+	s1.append(" C++");
 	cout << s1 << endl; // Hello C++
 
 	// 长度
@@ -42,8 +50,15 @@ int main()
 	// 字符串与数字转换
 	int num = 42;
 	string numStr = to_string(num);  // int -> string
-	int parsed = stoi("123");
+	int parsed = stoi("123");      // string -> int
+	double parsed2 = stof("3.14");  // string -> float
+	cout << "转换：" << numStr << "," << parsed << ", " << parsed2 << endl;
 
+	// 遍历每个字符
+	for (char c:greeting) {
+		cout << c << " ";
+	}
+
+	cout << endl;
+	return 0;
 }
-
-
